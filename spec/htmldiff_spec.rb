@@ -102,6 +102,15 @@ describe "HTMLDiff" do
       end
     end
 
+    # describe 'nested tags' do
+    #   it 'wraps text modified, resulting in a deleted tag' do
+    #     b = %|<p>1,2,<p><p>2,</p></p>3</p>|
+    #     a = %|<p>1,2,<p>1,</p>3</p>|
+    #     diff = HTMLDiff.diff(b, a)
+    #     diff.should == %|<p>1,2,<p><del class="diffmod"><p>2,</p></del><ins class="diffmod">1,</ins></p>3</p>|
+    #   end
+    # end
+
     describe 'tables' do
       it "wraps deleted table tags" do
         doc_a = %|<p> Test Paragraph </p>
