@@ -1,30 +1,33 @@
 # -*- encoding: utf-8 -*-
 
+
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'htmldiff/version'
+
 Gem::Specification.new do |s|
-  s.name = %q{htmldiff}
-  s.version = "0.0.1"
+  s.name             = %q{htmldiff}
+  s.version          = HTMLDiff::VERSION
+  s.platform         = Gem::Platform::RUBY
+  s.homepage         = %q{http://github.com/NullVoxPopuli/htmldiff}
+  s.summary          = "htmldiff-#{HTMLDiff::VERSION}"
+  s.description      = %q{HTML diffs of text (borrowed from a wiki software I no longer remember)}
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Nathan Herald"]
-  s.autorequire = %q{htmldiff}
-  s.date = %q{2008-11-21}
-  s.description = %q{HTML diffs of text (borrowed from a wiki software I no longer remember)}
-  s.email = %q{nathan@myobie.com}
-  s.extra_rdoc_files = ["README", "LICENSE", "TODO"]
-  s.files = ["LICENSE", "README", "Rakefile", "TODO", "lib/htmldiff.rb", "spec/htmldiff_spec.rb", "spec/spec_helper.rb"]
-  s.has_rdoc = true
-  s.homepage = %q{http://github.com/myobie/htmldiff}
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.1}
-  s.summary = %q{HTML diffs of text (borrowed from a wiki software I no longer remember)}
+  s.authors          = ["Nathan Herald", "L. Preston Sego III"]
+  s.email            = %q{nathan@myobie.com}
 
-  if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
-    s.specification_version = 2
+  s.require_paths    = ["lib"]
+  s.autorequire      = %q{htmldiff}
+  s.files            = `git ls-files`.split($/)
+  s.test_files       = s.files.grep(%r{^(test|spec|features)/})
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-    else
-    end
-  else
-  end
+  s.has_rdoc         = true
+  s.extra_rdoc_files = ["README.md", "LICENSE", "TODO"]
+
+
+  s.add_development_dependency 'bundler'
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'pry-byebug'
+  s.add_development_dependency "codeclimate-test-reporter"
+
 end
