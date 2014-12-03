@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary          = "htmldiff-#{HTMLDiff::VERSION}"
   s.description      = %q{HTML diffs of text (borrowed from a wiki software I no longer remember)}
 
-  s.authors          = ["Nathan Herald", "L. Preston Sego III"]
+  s.authors          = ["Nathan Herald"]
   s.email            = %q{nathan@myobie.com}
 
   s.require_paths    = ["lib"]
